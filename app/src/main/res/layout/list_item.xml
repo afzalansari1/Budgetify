@@ -4,54 +4,58 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="1.5dp">
+    android:paddingTop="2dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardElevation="3dp"
-        app:cardCornerRadius="3dp"
-        android:layout_margin="3dp"
-        android:padding="3dp"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="1.5dp"
         android:clipToPadding="false"
+        app:cardMaxElevation="15dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardBackgroundColor="#EDF1EF"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:orientation="horizontal">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/back_ground"
-                android:paddingLeft="8dp"
+                android:layout_weight="0.22"
+                android:layout_height="match_parent"
+                android:padding = "2dp"
+                android:layout_margin="2dp"
                 android:text=":ITEM NAME"
                 android:textSize="25sp" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/price"
                 android:layout_width="match_parent"
+                android:layout_weight="0.28"
                 android:layout_height="match_parent"
+                android:background="#E4E4E4"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="2"
-                android:background="@drawable/back_ground"
                 android:ellipsize="end"
                 android:gravity="center"
-                android:paddingLeft="2dp"
                 android:scrollHorizontally="true"
                 android:text="$9894545458"
                 android:textAlignment="center"
                 android:textSize="18sp" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/delete"
-                android:layout_width="22dp"
+                app:tint="@color/black"
+                android:layout_weight="0.4"
+                android:layout_width="match_parent"
+                android:padding="2dp"
+                android:layout_margin="2dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="right"
-                android:background="@drawable/back_ground"
                 app:srcCompat="@drawable/delete" />
 
         </LinearLayout>
