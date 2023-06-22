@@ -14,7 +14,6 @@
         app:layout_constraintEnd_toEndOf="@id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -103,7 +102,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -113,6 +111,13 @@
             app:cardCornerRadius="4dp"
             app:cardElevation="2dp"
             app:cardMaxElevation="4dp">
+            <Button
+                android:id="@+id/logoutBtn"
+                android:text="Log Out"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/purple_200"
+                android:layout_height="55dp"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.afzal.budgetify
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -7,6 +8,7 @@ import android.text.InputFilter
 import android.text.Spanned
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -16,10 +18,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.afzal.budgetify.database.Item
+import com.google.firebase.auth.FirebaseAuth
 import javax.security.auth.Subject
 
 class MainActivity : AppCompatActivity(), IItemDataAdapter{
-
+    private lateinit var mAuth: FirebaseAuth
     lateinit var viewModel : SubjectViewModel
     private val totalData = ArrayList<Item>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +43,23 @@ class MainActivity : AppCompatActivity(), IItemDataAdapter{
                 updateTotal(list)
             }
         })
+        mAuth = FirebaseAuth.getInstance()
+        val logout = findViewById<Button>(R.id.logoutBtn)
+        logout.setOnClickListener{
+            logOut()
+        }
 
+    }
+    private fun logOut(){
+        val auth = FirebaseAuth.getInstance()
+        auth.signOut()
+        auth.addAuthStateListener {
+            if(auth.currentUser == null){
+                val intent = Intent(this, SignInActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
     }
 
     override fun onItemClicked(item: Item) {
@@ -159,5 +178,8 @@ class MainActivity : AppCompatActivity(), IItemDataAdapter{
             return if (b > a) c in a..b else c in b..a
         }
     }
+
+
+
 
 }
